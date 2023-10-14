@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { signIn } from "next-auth/react";
+import { signIn, SignInResponse } from "next-auth/react";
 import Window from "@/app/components/Window";
 import Button from "@/app/components/Button";
 import { useRouter } from "next/navigation";
@@ -15,7 +15,7 @@ export default function Login() {
   console.log("username: ", username);
   console.log("password: ", password);
   console.log("error: ", error);
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
 
     try {
@@ -25,7 +25,7 @@ export default function Login() {
         redirect: false,
       });
 
-      if (res.error) {
+      if (res?.error) {
         setError("Invalid credentials.");
         return;
       }
@@ -64,9 +64,8 @@ export default function Login() {
               )}
               <Button.Group>
                 <Link href="/register">
-                  <Button>I'm new here</Button>
+                  <Button type="button" variant="flat">I'm new here</Button>
                 </Link>
-
                 <Button type="submit">Login</Button>
               </Button.Group>
             </form>

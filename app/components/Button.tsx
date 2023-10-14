@@ -13,7 +13,7 @@ export default function Button({
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>
-  variant?: 'default' | 'thin' | 'flat' | 'th' | 'close';
+  variant?: 'default' | 'thin' | 'flat' | 'th' | 'close' | 'underline';
   color?: ColorType;
   size?: SizeType;
   className?: string;

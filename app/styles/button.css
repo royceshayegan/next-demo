@@ -32,8 +32,19 @@
 .wind92-btn-close {
   @apply w-[28px] h-[28px] p-0;
 }
+.wind92-btn-flat {
+  @apply border-none shadow-none;
+  @apply hover:shadow-box;
+}
+.wind92-btn-underline {
+  @apply border-none shadow-none;
+  @apply hover:underline;
+}
+.wind92-btn-underline:active:not(disabled) {
+  @apply border border-dashed shadow-none;
+}
 /* Other */
-.wind92-btn:active:not([disabled]) {
+.wind92-btn-default:active:not([disabled]), .wind92-btn-close:active:not([disabled]), .wind92-btn-th:active:not([disabled]), .wind92-btn-flat:active:not([disabled]) {
   @apply shadow-depressed;
 }
 .wind92-btn:disabled,

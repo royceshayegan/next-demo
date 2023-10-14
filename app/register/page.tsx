@@ -86,7 +86,7 @@ export default function Register() {
               )}
               <Button.Group>
                 <Link href="/login">
-                  <Button>I've been here before</Button>
+                  <Button type="button" variant="flat">I've been here before</Button>
                 </Link>
                 <Button type="submit">Create Account</Button>
               </Button.Group>

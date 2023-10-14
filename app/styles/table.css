@@ -1,0 +1,26 @@
+.wind92-table {
+  @apply overflow-scroll relative p-px min-h-[300px] max-h-[300px] shadow-frame border border-frame bg-black/10 w-full;
+}
+
+/* Normalize Table */
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+table {
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}

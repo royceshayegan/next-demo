@@ -1,0 +1,35 @@
+@tailwind base;
+@layer base {
+  @import "./theme.css";
+  @import "./webfont.css";
+  
+  body {
+    @apply bg-wallpaper;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  
+  html,
+  body,
+  main {
+    @apply w-full h-full;
+  }
+  
+  h1 {
+    @apply text-xl;
+  }
+  input[type="text"] {
+    @apply w-full h-[34px] px-3 shadow-frame bg-secondary text-on-secondary;
+  }
+  /* input[type="text"] {
+        @apply w-full h-[34px] px-3 shadow-frame bg-tertiary text-on-tertiary;
+      } */
+  input::placeholder {
+    @apply text-on-secondary;
+  }
+  input:focus {
+    @apply outline-none;
+  }
+  
+}

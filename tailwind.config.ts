@@ -1,20 +1,53 @@
 import type { Config } from 'tailwindcss'
-
+// const plugin = require('tailwindcss/plugin');
 const config: Config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  presets: [
+    require('./node_modules/wind92/preset'),
+  ],
+  // plugins: [
+  //   plugin(function({ addComponents, addUtilities }: { addComponents: any, addUtilities: any }) {
+  //     addComponents(components),
+  //     addUtilities(utilities)
+  //   })
+  // ],
   theme: {
+    fontFamily: {
+			sans: ['w95fa', 'sans-serif']
+		},
     extend: {
+      colors: {
+        'wallpaper': 'var(--wallpaper-color)',
+        'neutral': 'var(--neutral)',
+        'primary': 'var(--primary)',
+        'secondary': 'var(--secondary)',
+        'tertiary': 'var(--tertiary)',
+        'accent': 'var(--accent)',
+        'on-neutral': 'var(--on-neutral)',
+        'on-primary': 'var(--on-primary)',
+        'on-secondary': 'var(--on-secondary)',
+        'on-tertiary': 'var(--on-tertiary)',
+        'on-accent': 'var(--on-accent)',
+        'error': 'var(--error)',
+        'on-error': 'var(--on-error)',
+      },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'wallpaper': 'var(--wallpaper)',
+      },
+      borderColor: {
+        'frame': 'rgba(255,255,255,.25)',
+        'box': 'rgba(0,0,0,.25)',
+      },
+      boxShadow: {
+        'frame': '-1px -1px 0px 0px rgba(255, 255, 255, 0.75) inset, 1px 1px 0px 0px rgba(0, 0, 0, 0.25) inset',
+        'depressed': '-1px -1px 0px 0px rgba(0, 0, 0, 0.10) inset, 1px 1px 0px 0px rgba(0, 0, 0, 0.50) inset',
+        'box': '1px 1px 0px 0px rgba(255, 255, 255, 0.75) inset, -1px -1px 0px 0px rgba(0, 0, 0, 0.25) inset',
       },
     },
   },
-  plugins: [],
 }
 export default config

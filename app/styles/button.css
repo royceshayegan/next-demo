@@ -1,0 +1,72 @@
+/* Button */
+.wind92-btn {
+  @apply select-none font-sans text-base overflow-x-hidden flex items-start;
+}
+/* Colors */
+.wind92-btn-neutral {
+  @apply bg-neutral text-on-neutral;
+}
+.wind92-btn-accent {
+  @apply bg-accent text-on-accent;
+}
+.wind92-btn-error {
+  @apply bg-error text-on-error;
+}
+/* Sizes */
+.wind92-btn-md {
+  @apply px-5 py-1 h-[34px];
+}
+/* Variants */
+.wind92-btn-default, .wind92-btn-flat, .wind92-btn-thin, .wind92-btn-close {
+  @apply justify-center;
+}
+.wind92-btn-default,
+.wind92-btn-th,
+.wind92-btn-close {
+  /* @apply border border-box shadow-box; */
+  @apply box;
+}
+.wind92-btn-th {
+  @apply w-full text-left px-3 py-0 h-[28px] justify-start items-center;
+}
+.wind92-btn-close {
+  @apply w-[28px] h-[28px] p-0;
+}
+/* Other */
+.wind92-btn:active:not([disabled]) {
+  @apply shadow-depressed;
+}
+.wind92-btn:disabled,
+.wind92-btn[disabled="true"] {
+  @apply text-black/25;
+  text-shadow: rgb(254, 254, 254) 1px 1px;
+}
+/* Button Group */
+.wind92-btn-group {
+  @apply flex w-full py-3 items-center;
+}
+.wind92-btn-group-divider-vertical {
+  @apply border border-frame shadow-frame mx-3 w-[2px] h-[34px];
+}
+.wind92-btn-group-divider-horizontal {
+  @apply border border-frame shadow-frame my-3 w-full h-[2px];
+}
+/* Alignment */
+.wind92-btn-group-start {
+  @apply justify-start;
+}
+.wind92-btn-group-start > .wind92-btn:not(:last-child) {
+  @apply mr-2;
+}
+.wind92-btn-group-center {
+  @apply justify-center;
+}
+.wind92-btn-group-center > .wind92-btn {
+  @apply mx-1;
+}
+.wind92-btn-group-end {
+  @apply justify-end;
+}
+.wind92-btn-group-end > .wind92-btn:not(:first-child) {
+  @apply ml-2;
+}

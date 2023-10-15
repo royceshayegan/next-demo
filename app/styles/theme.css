@@ -2,6 +2,7 @@
   .root,
   #root,
   #docs-root {
+    /* Colors */
     --white: #ffffff;
     --black: #000000;
     --grey: #c6c6c6;
@@ -38,10 +39,15 @@
     --cyan: #79e3ff;
     --pink: #f9a3d5;
     --hot-pink: #ff78fa;
+    /* Elements */
+    --navbar-height: 3rem;
+    --site-height: calc(100% - var(--navbar-height)); 
   }
 
   html[data-theme="default"] {
     --wallpaper-color: var(--teal);
+    --surface-navbar: var(--neutral);
+    --surface-window: var(--neutral);
     --neutral: var(--light-grey);
     --primary: var(--indigo);
     --secondary: var(--white);
@@ -49,6 +55,8 @@
     --accent: var(--light-grey);
     --error: var(--strawberry);
     --on-wallpaper-color: var(--white);
+    --on-surface-navbar: var(--on-neutral);
+    --on-surface-window: var(--on-neutral);
     --on-neutral: var(--half-black);
     --on-primary: var(--white);
     --on-secondary: var(--half-black);

@@ -1,5 +1,13 @@
-  .wind92-table {
+  .table-container {
     @apply overflow-scroll relative p-px min-h-[300px] max-h-[300px] shadow-frame border border-frame bg-black/10 w-full;
+  }
+
+  .table-container > table {
+    @apply w-[125%] sm:w-full;
+  }
+
+  .table-container th:first-child {
+    @apply w-full max-w-[75%];
   }
 
   /* Normalize Table */

@@ -13,13 +13,22 @@ const config: Config = {
 			sans: ['w95fa', 'sans-serif']
 		},
     extend: {
+      height: {
+        'site': 'var(--site-height)',
+        'navbar': 'var(--navbar-height)',
+      },
       colors: {
         'wallpaper': 'var(--wallpaper-color)',
+        'surface-navbar': 'var(--surface-navbar)',
+        'surface-window': 'var(--surface-window)',
         'neutral': 'var(--neutral)',
         'primary': 'var(--primary)',
         'secondary': 'var(--secondary)',
         'tertiary': 'var(--tertiary)',
         'accent': 'var(--accent)',
+        'on-wallpaper': 'var(--on-wallpaper)',
+        'on-surface-navbar': 'var(--on-surface-navbar)',
+        'on-surface-window': 'var(--on-surface-window)',
         'on-neutral': 'var(--on-neutral)',
         'on-primary': 'var(--on-primary)',
         'on-secondary': 'var(--on-secondary)',
@@ -27,10 +36,6 @@ const config: Config = {
         'on-accent': 'var(--on-accent)',
         'error': 'var(--error)',
         'on-error': 'var(--on-error)',
-        // 'surface-window': 'var(--surface-window)',
-        // 'on-surface-window': 'var(--on-surface-window)',
-        // 'surface-navbar': 'var(--surface-navbar)',
-        // 'on-surface-navbar': 'var(--on-surface-navbar)',
       },
       backgroundImage: {
         'wallpaper': 'var(--wallpaper)',

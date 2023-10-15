@@ -1,10 +1,9 @@
-
-  .box {
-    @apply shadow-box border border-box;
-  }
-  .frame {
-    @apply shadow-frame border border-frame bg-black/10;
-  }
-  .frame-shallow {
-    @apply shadow-frame bg-black/10;
-  }
+.box {
+  @apply shadow-box border border-box;
+}
+.frame {
+  @apply shadow-frame border border-frame bg-black/10;
+}
+.frame-shallow {
+  @apply shadow-frame bg-black/10;
+}

@@ -15,7 +15,7 @@ export default function TodoList() {
         <Table>
           <thead>
             <tr>
-              <th className="w-[80%]">
+              <th>
                 <Button variant="th">Description</Button>
               </th>
               <th>

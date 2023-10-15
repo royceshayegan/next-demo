@@ -19,12 +19,12 @@ export default function Button({
   className?: string;
   children: React.ReactNode;
 }) {
-  const baseClass: string = "wind92-btn";
+  const baseClass: string = "btn";
   const variantClass: string = variant
-    ? `wind92-btn-${variant}`
-    : "wind92-btn-default";
-  const sizeClass: string = size ? `wind92-btn-${size}` : "wind92-btn-md";
-  const colorClass: string = color ? `wind92-btn-${color}` : "wind92-btn-neutral";
+    ? `btn-${variant}`
+    : "btn-default";
+  const sizeClass: string = size ? `btn-${size}` : "btn-md";
+  const colorClass: string = color ? `btn-${color}` : "btn-neutral";
   const combinedClasses: string = `${baseClass} ${variantClass} ${sizeClass} ${colorClass} ${
     className || ""
   }`;
@@ -44,8 +44,8 @@ function Group({
   alignment?: AlignmentType;
   children: React.ReactNode;
 }) {
-  const baseClass: string = "wind92-btn-group";
-  const alignmentClass: string = alignment ? `wind92-btn-group-${alignment}` : 'wind92-btn-group-end';
+  const baseClass: string = "btn-group";
+  const alignmentClass: string = alignment ? `btn-group-${alignment}` : 'btn-group-end';
   const combinedClasses: string = `${baseClass} ${alignmentClass}`;
     return (
         <>
@@ -63,8 +63,8 @@ function Group({
 //   alignment?: AlignmentType;
 //   children: React.ReactNode;
 // }) {
-//   const baseClass: string = "wind92-btn-group";
-//   const alignmentClass: string = alignment ? `wind92-btn-group-${alignment}` : 'wind92-btn-group-end';
+//   const baseClass: string = "btn-group";
+//   const alignmentClass: string = alignment ? `btn-group-${alignment}` : 'btn-group-end';
 //   const combinedClasses: string = `${baseClass} ${alignmentClass}`;
 //     return (
 //         <>

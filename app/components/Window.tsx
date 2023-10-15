@@ -16,16 +16,16 @@ export default function Window({
   dismissable?: string;
   children: React.ReactNode;
 }) {
-  const baseClass = "wind92-window";
-  const colorClass: string = color ? `wind92-window-${color}` : "wind92-window-neutral";
-  const sizeClass: string = size ? `wind92-window-${size}` : "wind92-window-md";
+  const baseClass = "window";
+  const colorClass: string = color ? `window-${color}` : "window-neutral";
+  const sizeClass: string = size ? `window-${size}` : "window-md";
   const combinedClasses = `${baseClass} ${colorClass} ${sizeClass} ${
     className || ""
   }`;
   return (
     <>
       <div className={combinedClasses}>
-        <div className="wind92-window-titlebar">
+        <div className="window-titlebar">
           <h1>{title}</h1>
           {dismissable && (
             <Button color="error" variant="close">
@@ -33,7 +33,7 @@ export default function Window({
             </Button>
           )}
         </div>
-        <div className="wind92-window-content">{children}</div>
+        <div className="window-content">{children}</div>
       </div>
     </>
   );

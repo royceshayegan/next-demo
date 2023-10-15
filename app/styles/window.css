@@ -1,39 +1,39 @@
-  .wind92-window {
+  .window {
     @apply w-full shadow-box border border-box bg-neutral;
   }
-  .wind92-window-titlebar {
+  .window-titlebar {
     @apply flex w-full justify-between items-center px-3 h-10 shadow-box;
   }
-  .wind92-window-neutral .wind92-window-titlebar {
+  .window-neutral .window-titlebar {
     @apply bg-neutral;
   }
-  .wind92-window-neutral .wind92-window-titlebar > h1 {
+  .window-neutral .window-titlebar > h1 {
     @apply text-on-neutral;
   }
-  .wind92-window-primary .wind92-window-titlebar {
+  .window-primary .window-titlebar {
     @apply bg-primary;
   }
-  .wind92-window-primary .wind92-window-titlebar > h1 {
+  .window-primary .window-titlebar > h1 {
     @apply text-on-primary;
   }
-  .wind92-window-secondary .wind92-window-titlebar {
+  .window-secondary .window-titlebar {
     @apply bg-secondary;
   }
-  .wind92-window-secondary .wind92-window-titlebar > h1 {
+  .window-secondary .window-titlebar > h1 {
     @apply text-on-secondary;
   }
-  .wind92-window-tertiary .wind92-window-titlebar {
+  .window-tertiary .window-titlebar {
     @apply bg-tertiary;
   }
-  .wind92-window-tertiary .wind92-window-titlebar > h1 {
+  .window-tertiary .window-titlebar > h1 {
     @apply text-on-tertiary;
   }
-  .wind92-window-accent .wind92-window-titlebar {
+  .window-accent .window-titlebar {
     @apply bg-accent;
   }
-  .wind92-window-accent .wind92-window-titlebar > h1 {
+  .window-accent .window-titlebar > h1 {
     @apply text-on-accent;
   }
-  .wind92-window-content {
+  .window-content {
     @apply p-3;
   }

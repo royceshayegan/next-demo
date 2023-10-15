@@ -5,7 +5,7 @@ export default function Table({
   className?: string;
   children: React.ReactNode;
 }) {
-  const baseClass: string = "wind92-table";
+  const baseClass: string = "table-container";
   const combinedClasses: string = `${baseClass} ${className || ""}`;
   return (
     <>

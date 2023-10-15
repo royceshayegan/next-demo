@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { AuthProvider } from "./components/Provider";
-import NavMenu from "./components/NavMenu";
+import Navbar from "./components/Navbar";
 
 export const metadata: Metadata = {
   title: "Next Demo App",
@@ -15,9 +15,9 @@ export default async function RootLayout({
 }) {
   return (
     <html data-theme="default" data-ui="wind92" lang="en">
-      <body>
+      <body className="h-site bg-wallpaper">
         <AuthProvider>
-          <NavMenu></NavMenu>
+          <Navbar />
           <main>{children}</main>
         </AuthProvider>
       </body>

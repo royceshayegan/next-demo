@@ -1,21 +1,18 @@
-@tailwind base;
-@layer base {
-  @import "./theme.css";
-  @import "./webfont.css";
-  
-  body {
+@import './theme.css';
+@import './webfont.css';
+body {
     @apply bg-wallpaper;
   }
   * {
     box-sizing: border-box;
   }
-  
+
   html,
   body,
   main {
     @apply w-full h-full;
   }
-  
+
   h1 {
     @apply text-xl;
   }
@@ -31,5 +28,3 @@
   input:focus {
     @apply outline-none;
   }
-  
-}

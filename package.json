@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -21,11 +20,9 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10",
-    "eslint": "^8",
-    "eslint-config-next": "13.5.4",
     "postcss": "^8",
+    "postcss-import": "^15.1.0",
     "tailwindcss": "^3",
-    "typescript": "^5",
-    "wind92": "file:../wind92"
+    "typescript": "^5"
   }
 }

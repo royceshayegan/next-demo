@@ -1,75 +1,75 @@
-:root,
-.root,
-#root,
-#docs-root {
-  --white: #ffffff;
-  --black: #000000;
-  --grey: #c6c6c6;
-  --light-grey: #e9e9e9;
-  --half-black: rgba(0, 0, 0, 0.5);
-  --quarter-black: rgba(0, 0, 0, 0.25);
-  --three-quarter-black: rgba(0, 0, 0, 0.75);
-  --half-white: rgba(255, 255, 255, 0.5);
-  --quarter-white: rgba(255, 255, 255, 0.25);
-  --three-quarter-white: rgba(255, 255, 255, 0.75);
-  --tenth-black: rgba(0, 0, 0, 0.1);
-  --tenth-white: rgba(255, 255, 255, 0.1);
-  --teal: #008080;
-  --light-teal: #0b9b9b;
-  --seafoam: #bde6d7;
-  --grapefruit: #fca6ac;
-  --strawberry: #ee5e68;
-  --blush: #fca6ac;
-  --light-blush: #ffcdea;
-  --dark-blush: #e9a3fb;
-  --lime: #39fbad;
-  --light-plum: #d6ccff;
-  --plum: #ae77fe;
-  --dark-plum: #5f4855;
-  --light-orange: #faefeb;
-  --orange: #fdcea3;
-  --dark-orange: #f88c7c;
-  --yellow: #ffeda9;
-  --indigo: #5774f7;
-  --light-indigo: #a1c8ff;
-  --dark-indigo: #5452fe;
-  --deep-indigo: #1f1dcf;
-  --light-cyan: #b6f0ff;
-  --cyan: #79e3ff;
-  --pink: #f9a3d5;
-  --hot-pink: #ff78fa;
-}
+  :root,
+  .root,
+  #root,
+  #docs-root {
+    --white: #ffffff;
+    --black: #000000;
+    --grey: #c6c6c6;
+    --light-grey: #e9e9e9;
+    --half-black: rgba(0, 0, 0, 0.5);
+    --quarter-black: rgba(0, 0, 0, 0.25);
+    --three-quarter-black: rgba(0, 0, 0, 0.75);
+    --half-white: rgba(255, 255, 255, 0.5);
+    --quarter-white: rgba(255, 255, 255, 0.25);
+    --three-quarter-white: rgba(255, 255, 255, 0.75);
+    --tenth-black: rgba(0, 0, 0, 0.1);
+    --tenth-white: rgba(255, 255, 255, 0.1);
+    --teal: #008080;
+    --light-teal: #0b9b9b;
+    --seafoam: #bde6d7;
+    --grapefruit: #fca6ac;
+    --strawberry: #ee5e68;
+    --blush: #fca6ac;
+    --light-blush: #ffcdea;
+    --dark-blush: #e9a3fb;
+    --lime: #39fbad;
+    --light-plum: #d6ccff;
+    --plum: #ae77fe;
+    --dark-plum: #5f4855;
+    --light-orange: #faefeb;
+    --orange: #fdcea3;
+    --dark-orange: #f88c7c;
+    --yellow: #ffeda9;
+    --indigo: #5774f7;
+    --light-indigo: #a1c8ff;
+    --dark-indigo: #5452fe;
+    --deep-indigo: #1f1dcf;
+    --light-cyan: #b6f0ff;
+    --cyan: #79e3ff;
+    --pink: #f9a3d5;
+    --hot-pink: #ff78fa;
+  }
 
-html[data-theme="default"] {
-  --wallpaper-color: var(--teal);
-  --neutral: var(--light-grey);
-  --primary: var(--indigo);
-  --secondary: var(--white);
-  --tertiary: var(--tenth-black);
-  --accent: var(--light-grey);
-  --error: var(--strawberry);
-  --on-wallpaper-color: var(--white);
-  --on-neutral: var(--half-black);
-  --on-primary: var(--white);
-  --on-secondary: var(--half-black);
-  --on-tertiary: var(--half-black);
-  --on-accent: var(--half-black);
-  --on-error: var(--white);
-}
+  html[data-theme="default"] {
+    --wallpaper-color: var(--teal);
+    --neutral: var(--light-grey);
+    --primary: var(--indigo);
+    --secondary: var(--white);
+    --tertiary: var(--tenth-black);
+    --accent: var(--light-grey);
+    --error: var(--strawberry);
+    --on-wallpaper-color: var(--white);
+    --on-neutral: var(--half-black);
+    --on-primary: var(--white);
+    --on-secondary: var(--half-black);
+    --on-tertiary: var(--half-black);
+    --on-accent: var(--half-black);
+    --on-error: var(--white);
+  }
 
-html[data-theme="moonlight"] {
-  --wallpaper-color: var(--grey);
-  --neutral: var(--light-grey);
-  --primary: var(--grey);
-  --secondary: var(--cyan);
-  --tertiary: var(--indigo);
-  --accent: var(--light-grey);
-  --error: var(--strawberry);
-  --on-wallpaper-color: var(--white);
-  --on-neutral: var(--half-black);
-  --on-primary: var(--half-black);
-  --on-secondary: var(--white);
-  --on-tertiary: var(--white);
-  --on-accent: var(--half-black);
-  --on-error: var(--white);
-}
+  html[data-theme="moonlight"] {
+    --wallpaper-color: var(--grey);
+    --neutral: var(--light-grey);
+    --primary: var(--grey);
+    --secondary: var(--cyan);
+    --tertiary: var(--indigo);
+    --accent: var(--light-grey);
+    --error: var(--strawberry);
+    --on-wallpaper-color: var(--white);
+    --on-neutral: var(--half-black);
+    --on-primary: var(--half-black);
+    --on-secondary: var(--white);
+    --on-tertiary: var(--white);
+    --on-accent: var(--half-black);
+    --on-error: var(--white);
+  }

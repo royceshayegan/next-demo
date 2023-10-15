@@ -1,5 +1,4 @@
-@tailwind utilities;
-@layer utilities {
+
   .box {
     @apply shadow-box border border-box;
   }
@@ -9,4 +8,3 @@
   .frame-shallow {
     @apply shadow-frame bg-black/10;
   }
-}

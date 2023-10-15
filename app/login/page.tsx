@@ -46,6 +46,7 @@ export default function Login() {
           >
             <form onSubmit={handleSubmit}>
               <input
+              autoFocus
                 className="my-1"
                 type="text"
                 placeholder="Username"

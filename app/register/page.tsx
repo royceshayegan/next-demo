@@ -68,6 +68,7 @@ export default function Register() {
           >
             <form onSubmit={handleSubmit}>
               <input
+              autoFocus
                 className="my-1"
                 type="text"
                 placeholder="Username"

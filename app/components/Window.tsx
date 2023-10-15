@@ -22,7 +22,7 @@ export default function Window({
   const baseClass = "window";
   const colorClass: string = color ? `filled-${color}` : "filled-surface";
   const sizeClass: string = size ? `window-${size}` : "window-md";
-  const combinedClasses = `${baseClass} ${sizeClass} ${
+  const combinedClasses = `${baseClass} filled-surface ${sizeClass} ${
     className || ""
   }`;
   return (

@@ -16,7 +16,7 @@ export default function Navbar() {
   const [selectedTheme, setSelectedTheme] = useState(theme[0]);
   return (
     <>
-      <div className="flex filled-surface justify-between items-center h-navbar box w-full px-3">
+      <div className="flex filled-neutral justify-between items-center h-navbar box w-full px-3">
         <div className="flex items-center">
           <h1 className="mr-6">Wind92</h1>
           <Listbox value={selectedTheme} onChange={setSelectedTheme}>
@@ -42,7 +42,7 @@ export default function Navbar() {
           </Listbox>
         </div>
 
-        <Button onClick={() => signOut()}>Logout</Button>
+        <Button onClick={() => signOut()} color="accent">Logout</Button>
       </div>
     </>
   );

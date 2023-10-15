@@ -4,36 +4,7 @@
   .window-titlebar {
     @apply flex w-full justify-between items-center px-3 h-10 shadow-box;
   }
-  .window-neutral .window-titlebar {
-    @apply bg-neutral;
-  }
-  .window-neutral .window-titlebar > h1 {
-    @apply text-on-neutral;
-  }
-  .window-primary .window-titlebar {
-    @apply bg-primary;
-  }
-  .window-primary .window-titlebar > h1 {
-    @apply text-on-primary;
-  }
-  .window-secondary .window-titlebar {
-    @apply bg-secondary;
-  }
-  .window-secondary .window-titlebar > h1 {
-    @apply text-on-secondary;
-  }
-  .window-tertiary .window-titlebar {
-    @apply bg-tertiary;
-  }
-  .window-tertiary .window-titlebar > h1 {
-    @apply text-on-tertiary;
-  }
-  .window-accent .window-titlebar {
-    @apply bg-accent;
-  }
-  .window-accent .window-titlebar > h1 {
-    @apply text-on-accent;
-  }
+
   .window-content {
     @apply p-3;
   }

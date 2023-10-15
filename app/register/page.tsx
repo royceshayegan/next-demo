@@ -65,29 +65,37 @@ export default function Register() {
             dismissable="back to login"
           >
             <form onSubmit={handleSubmit}>
-              <input
-              autoFocus
-                className="my-1 text-input"
-                type="text"
-                placeholder="Username"
-                onChange={(e) => setUsername(e.target.value)}
-              />
-              <input
-                className="my-1 text-input"
-                type="password"
-                placeholder="Password"
-                onChange={(e) => setPassword(e.target.value)}
-              />
+              <div className="form-control">
+                <input
+                  autoFocus
+                  type="text"
+                  placeholder="Username"
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <input
+                  type="password"
+                  placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
               {error && (
-                <div className="px-3 mt-1">
-                  <span className="text-error text-sm">{error}</span>
-                </div>
+                <span className="text-sm filled-error px-3 py-1 mt-1">
+                  {error}
+                </span>
               )}
               <Button.Group>
                 <Link href="/login">
-                  <Button type="button" variant="flat">I've been here before</Button>
+                  <Button type="button" variant="flat" color="neutral">
+                    I've been here before
+                  </Button>
                 </Link>
-                <Button type="submit">Create Account</Button>
+                <Button type="submit" color="accent">
+                  Create Account
+                </Button>
               </Button.Group>
             </form>
           </Window>

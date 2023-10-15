@@ -13,7 +13,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
     try {
@@ -43,29 +43,38 @@ export default function Login() {
             dismissable="back to login"
           >
             <form onSubmit={handleSubmit}>
-              <input
-              autoFocus
-                className="my-1 text-input"
-                type="text"
-                placeholder="Username"
-                onChange={(e) => setUsername(e.target.value)}
-              />
-              <input
-                className="my-1 text-input"
-                type="password"
-                placeholder="Password"
-                onChange={(e) => setPassword(e.target.value)}
-              />
+              <div className="form-control">
+                <input
+                  autoFocus
+                  type="text"
+                  name="username"
+                  placeholder="Username"
+                  required
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </div>
+              <div className="form-control">
+                <input
+                  type="password"
+                  placeholder="Password"
+                  required
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
               {error && (
-                <div className="px-3 mt-1">
-                  <span className="text-error text-sm">{error}</span>
-                </div>
+                <span className="text-sm filled-error px-3 py-1 mt-1">
+                  {error}
+                </span>
               )}
               <Button.Group>
                 <Link href="/register">
-                  <Button type="button" variant="flat">I'm new here</Button>
+                  <Button type="button" variant="flat" color="neutral">
+                    I'm new here
+                  </Button>
                 </Link>
-                <Button type="submit">Login</Button>
+                <Button type="submit" color="accent">
+                  Login
+                </Button>
               </Button.Group>
             </form>
           </Window>

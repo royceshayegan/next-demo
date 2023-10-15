@@ -68,6 +68,14 @@
     @apply bg-surface-inset text-on-surface-inset;
     @apply placeholder:text-on-surface-inset;
   }
+  .filled-surface-navbar {
+    @apply bg-surface-navbar text-on-surface-navbar;
+    @apply placeholder:text-on-surface-navbar;
+  }
+  .filled-surface-window {
+    @apply bg-surface-window text-on-surface-window;
+    @apply placeholder:text-on-surface-window;
+  }
   .filled-neutral {
     @apply bg-neutral text-on-neutral;
     @apply placeholder:text-on-neutral;

@@ -1,14 +1,19 @@
 .form-control {
-    @apply relative flex items-center;
+  @apply relative flex items-center w-full;
 }
-.text-input {
-    @apply w-full h-input px-3 shadow-frame filled-surface-inset;
-    @apply focus:outline-none;
+.form-control input {
+  @apply w-full h-input px-3 my-1 shadow-frame filled-surface-inset;
+  @apply focus:outline-none;
+}
+
+.form-control label {
+  @apply absolute inset-0 flex items-center px-3 pointer-events-none;
 }
 
 .select {
-  @apply relative flex items-center justify-start w-full min-w-[8.125rem] h-input pl-3 pr-12 bg-secondary shadow-frame text-on-secondary;
-  @apply focus:bg-primary focus:text-on-primary;
+  @apply relative flex items-center justify-start w-full min-w-[8.125rem] h-input pl-3 pr-12 shadow-frame;
+  @apply filled-surface-inset;
+  @apply focus:filled-primary;
 }
 
 .select-arrow {
@@ -20,11 +25,10 @@
 }
 
 .select-options {
-    @apply absolute top-[34px] left-0 bg-secondary w-full border-on-secondary border shadow-box;
+  @apply absolute top-[var(--input-height)] left-0 filled-neutral w-full border-on-neutral border shadow-box;
 }
 
 .select-option {
-    @apply px-3 focus:bg-primary focus:text-on-primary;
-    @apply hover:bg-primary hover:text-on-primary cursor-pointer;
+  @apply px-3 focus:bg-primary focus:text-on-primary;
+  @apply hover:bg-primary hover:text-on-primary cursor-pointer;
 }
-

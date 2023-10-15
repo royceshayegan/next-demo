@@ -27,8 +27,7 @@
     @apply w-7 h-7 p-0;
   }
   .btn-flat {
-    @apply border-none shadow-none;
-    @apply hover:shadow-box;
+    @apply border-transparent shadow-none;
   }
   .btn-underline {
     @apply border-none shadow-none;

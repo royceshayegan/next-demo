@@ -5,7 +5,7 @@ import NavMenu from "./components/NavMenu";
 
 export const metadata: Metadata = {
   title: "Next Demo App",
-  description: "A demo CRUD app using nextjs, next-auth, mongodb, and prisma.",
+  description: "A demo CRUD app using Wind92 UI, NextJs, NextAuth, and MongoDB.",
 };
 
 export default async function RootLayout({

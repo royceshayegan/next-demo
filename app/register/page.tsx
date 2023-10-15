@@ -59,7 +59,7 @@ export default function Register() {
   };
   return (
     <>
-      <div className="flex w-full h-full justify-center items-center">
+      <div className="flex justify-center pt-24 lg:pt-48 items-start mx-[4%]">
         <div className="flex flex-col max-w-[500px] w-full">
           <Window
             color="primary"

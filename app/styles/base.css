@@ -16,7 +16,7 @@ body {
   h1 {
     @apply text-xl;
   }
-  input[type="text"] {
+  input[type="text"], input[type="password"] {
     @apply w-full h-[34px] px-3 shadow-frame bg-secondary text-on-secondary;
   }
   /* input[type="text"] {

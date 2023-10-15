@@ -14,7 +14,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html data-theme="default" data-ui="wind92" lang="en">
+    <html data-theme="default" data-ui="wind92" lang="en" className="scaling-base">
       <body className="h-site bg-wallpaper">
         <AuthProvider>
           <Navbar />

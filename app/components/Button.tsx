@@ -1,5 +1,8 @@
 import { AlignmentType, ColorType, SizeType } from "./types";
 
+
+// This is buggy with tailwind classes. Relies on making a duplicate set of classes just to satisfy the component.
+// TODO: find a way to integrate with utilities or remove altogether.
 export default function Button({
   type,
   disabled,
@@ -13,7 +16,7 @@ export default function Button({
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>
-  variant?: 'default' | 'thin' | 'flat' | 'th' | 'close' | 'underline';
+  variant?: '' | 'thin' | 'flat' | 'th' | 'close' | 'underline';
   color?: ColorType;
   size?: SizeType;
   className?: string;
@@ -22,9 +25,9 @@ export default function Button({
   const baseClass: string = "btn";
   const variantClass: string = variant
     ? `btn-${variant}`
-    : "btn-default";
+    : '';
   const sizeClass: string = size ? `btn-${size}` : "btn-md";
-  const colorClass: string = color ? `btn-${color}` : "btn-neutral";
+  const colorClass: string = color ? `filled-${color}` : "filled-surface";
   const combinedClasses: string = `${baseClass} ${variantClass} ${sizeClass} ${colorClass} ${
     className || ""
   }`;

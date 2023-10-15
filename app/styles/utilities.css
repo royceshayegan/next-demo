@@ -1,9 +1,122 @@
-.box {
+/* Utility classes to apply color and other style variations */
+/* TODO: replace this with a js file to automate the generation */
+.filled-surface {
+  @apply bg-surface text-on-surface;
+  @apply placeholder:text-on-surface;
+}
+.filled-surface-inset {
+  @apply bg-surface-inset text-on-surface-inset;
+  @apply placeholder:text-on-surface-inset;
+}
+.filled-neutral {
+  @apply bg-neutral text-on-neutral;
+  @apply placeholder:text-on-neutral;
+}
+
+.filled-primary {
+  @apply bg-primary text-on-primary;
+  @apply placeholder:text-on-primary;
+}
+
+.filled-secondary {
+  @apply bg-secondary text-on-secondary;
+  @apply placeholder:text-on-secondary;
+}
+
+.filled-tertiary {
+  @apply bg-tertiary text-on-tertiary;
+  @apply placeholder:text-on-tertiary;
+}
+
+.filled-accent {
+  @apply bg-accent text-on-accent;
+  @apply placeholder:text-on-accent;
+}
+
+.filled-success {
+  @apply bg-success text-on-success;
+  @apply placeholder:text-on-success;
+}
+
+.filled-warning {
+  @apply bg-warning text-on-warning;
+  @apply placeholder:text-on-warning;
+}
+
+.filled-error {
+  @apply bg-error text-on-error;
+  @apply placeholder:text-on-error;
+}
+
+.boxed {
   @apply shadow-box border border-box;
 }
-.frame {
-  @apply shadow-frame border border-frame bg-black/10;
+
+.framed {
+  @apply shadow-frame;
 }
-.frame-shallow {
-  @apply shadow-frame bg-black/10;
+
+.framed-deep {
+  @apply shadow-frame border border-frame;
+}
+@layer utilities {
+  .filled-surface {
+    @apply bg-surface text-on-surface;
+    @apply placeholder:text-on-surface;
+  }
+  .filled-surface-inset {
+    @apply bg-surface-inset text-on-surface-inset;
+    @apply placeholder:text-on-surface-inset;
+  }
+  .filled-neutral {
+    @apply bg-neutral text-on-neutral;
+    @apply placeholder:text-on-neutral;
+  }
+
+  .filled-primary {
+    @apply bg-primary text-on-primary;
+    @apply placeholder:text-on-primary;
+  }
+
+  .filled-secondary {
+    @apply bg-secondary text-on-secondary;
+    @apply placeholder:text-on-secondary;
+  }
+
+  .filled-tertiary {
+    @apply bg-tertiary text-on-tertiary;
+    @apply placeholder:text-on-tertiary;
+  }
+
+  .filled-accent {
+    @apply bg-accent text-on-accent;
+    @apply placeholder:text-on-accent;
+  }
+
+  .filled-success {
+    @apply bg-success text-on-success;
+    @apply placeholder:text-on-success;
+  }
+
+  .filled-warning {
+    @apply bg-warning text-on-warning;
+    @apply placeholder:text-on-warning;
+  }
+
+  .filled-error {
+    @apply bg-error text-on-error;
+    @apply placeholder:text-on-error;
+  }
+
+  .boxed {
+    @apply shadow-box border border-box;
+  }
+  
+  .framed {
+    @apply shadow-frame;
+  }
+
+  .framed-deep {
+    @apply shadow-frame border border-frame;
+  }
 }

@@ -1,4 +1,5 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
+const defaultTheme = require('tailwindcss/defaultTheme');
 const config: Config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -12,13 +13,34 @@ const config: Config = {
     fontFamily: {
 			sans: ['w95fa', 'sans-serif']
 		},
+    container: {
+			center: true,
+			padding: {
+				DEFAULT: '4%',
+        lg: '8%',
+        '3xl': '12%',
+        '4xl': '18%',
+			}
+		},
+		screens: {
+			xs: '360px',
+			...defaultTheme.screens
+		},
     extend: {
       height: {
         'site': 'var(--site-height)',
         'navbar': 'var(--navbar-height)',
+        'input': 'var(--input-height)',
+        'button': 'var(--button-height)',
       },
+      screens: {
+				'3xl': '1920px',
+        '4xl': '2560px',
+			},
       colors: {
         'wallpaper': 'var(--wallpaper-color)',
+        'surface': 'var(--surface)',
+        'surface-inset': 'var(--surface-inset)',
         'surface-navbar': 'var(--surface-navbar)',
         'surface-window': 'var(--surface-window)',
         'neutral': 'var(--neutral)',
@@ -26,7 +48,12 @@ const config: Config = {
         'secondary': 'var(--secondary)',
         'tertiary': 'var(--tertiary)',
         'accent': 'var(--accent)',
+        'success': 'var(--success)',
+        'warning': 'var(--warning)',
+        'error': 'var(--error)',
         'on-wallpaper': 'var(--on-wallpaper)',
+        'on-surface': 'var(--on-surface)',
+        'on-surface-inset': 'var(--on-surface-inset)',
         'on-surface-navbar': 'var(--on-surface-navbar)',
         'on-surface-window': 'var(--on-surface-window)',
         'on-neutral': 'var(--on-neutral)',
@@ -34,7 +61,8 @@ const config: Config = {
         'on-secondary': 'var(--on-secondary)',
         'on-tertiary': 'var(--on-tertiary)',
         'on-accent': 'var(--on-accent)',
-        'error': 'var(--error)',
+        'on-success': 'var(--on-success)',
+        'on-warning': 'var(--on-warning)',
         'on-error': 'var(--on-error)',
       },
       backgroundImage: {

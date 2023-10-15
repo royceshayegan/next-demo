@@ -1,17 +1,13 @@
 @import './theme.css';
 @import './webfont.css';
+@import './forms.css';
+
+.scaling-base {
+  @apply text-base;
+  @apply 3xl:text-lg;
+  @apply 4xl:text-2xl;
+}
   h1 {
     @apply text-xl;
   }
-  input[type="text"], input[type="password"] {
-    @apply w-full h-[34px] px-3 shadow-frame bg-secondary text-on-secondary;
-  }
-  /* input[type="text"] {
-        @apply w-full h-[34px] px-3 shadow-frame bg-tertiary text-on-tertiary;
-      } */
-  input::placeholder {
-    @apply text-on-secondary;
-  }
-  input:focus {
-    @apply outline-none;
-  }
+  

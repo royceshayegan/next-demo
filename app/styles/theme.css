@@ -39,13 +39,17 @@
     --cyan: #79e3ff;
     --pink: #f9a3d5;
     --hot-pink: #ff78fa;
-    /* Elements */
+    /* Element Base Sizing */
     --navbar-height: 3rem;
     --site-height: calc(100% - var(--navbar-height)); 
+    --input-height: 2.125rem;
+    --button-height: 2.125rem;
   }
 
   html[data-theme="default"] {
     --wallpaper-color: var(--teal);
+    --surface: var(--neutral);
+    --surface-inset: var(--white);
     --surface-navbar: var(--neutral);
     --surface-window: var(--neutral);
     --neutral: var(--light-grey);
@@ -53,8 +57,12 @@
     --secondary: var(--white);
     --tertiary: var(--tenth-black);
     --accent: var(--light-grey);
+    --success: var(--lime);
+    --warning: var(--yellow);
     --error: var(--strawberry);
     --on-wallpaper-color: var(--white);
+    --on-surface: var(--on-neutral);
+    --on-surface-inset: var(--on-neutral);
     --on-surface-navbar: var(--on-neutral);
     --on-surface-window: var(--on-neutral);
     --on-neutral: var(--half-black);
@@ -62,6 +70,8 @@
     --on-secondary: var(--half-black);
     --on-tertiary: var(--half-black);
     --on-accent: var(--half-black);
+    --on-success: var(--half-black);
+    --on-warning: var(--half-black);
     --on-error: var(--white);
   }
 

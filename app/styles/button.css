@@ -1,40 +1,30 @@
 
   /* Button */
   .btn {
-    @apply select-none font-sans text-base overflow-x-hidden flex items-start;
-  }
-  /* Colors */
-  .btn-neutral {
-    @apply bg-neutral text-on-neutral;
-  }
-  .btn-accent {
-    @apply bg-accent text-on-accent;
-  }
-  .btn-error {
-    @apply bg-error text-on-error;
-  }
-  /* Sizes */
-  .btn-md {
-    @apply px-5 py-1 h-[34px];
+    @apply select-none font-sans text-base h-button px-5 py-1 overflow-x-hidden flex items-start;
   }
   /* Variants */
-  .btn-default,
+  .btn,
   .btn-flat,
   .btn-thin,
   .btn-close {
-    @apply justify-center;
+    @apply select-none;
+    @apply font-sans text-base;
+    @apply h-button;
+    @apply px-5 py-1;
+    @apply overflow-hidden;
+    @apply flex justify-center items-start;
   }
-  .btn-default,
+  .btn,
   .btn-th,
   .btn-close {
-    /* @apply border border-box shadow-box; */
-    @apply box;
+    @apply boxed;
   }
   .btn-th {
-    @apply w-full text-left px-3 py-0 h-[28px] justify-start items-center;
+    @apply w-full text-left px-3 py-0 h-7 justify-start items-center;
   }
   .btn-close {
-    @apply w-[28px] h-[28px] p-0;
+    @apply w-7 h-7 p-0;
   }
   .btn-flat {
     @apply border-none shadow-none;
@@ -48,7 +38,7 @@
     @apply border border-dashed shadow-none;
   }
   /* Other */
-  .btn-default:active:not([disabled]),
+  .btn:active:not([disabled]),
   .btn-close:active:not([disabled]),
   .btn-th:active:not([disabled]),
   .btn-flat:active:not([disabled]) {

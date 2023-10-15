@@ -12,9 +12,7 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  console.log("username: ", username);
-  console.log("password: ", password);
-  console.log("error: ", error);
+
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
 
@@ -38,7 +36,7 @@ export default function Login() {
   return (
     <>
       <div className="flex justify-center pt-24 lg:pt-48 items-start mx-[4%]">
-        <div className="flex flex-col max-w-[500px] w-full">
+        <div className="flex flex-col max-w-sm w-full">
           <Window
             color="primary"
             title="Welcome back"
@@ -47,13 +45,13 @@ export default function Login() {
             <form onSubmit={handleSubmit}>
               <input
               autoFocus
-                className="my-1"
+                className="my-1 text-input"
                 type="text"
                 placeholder="Username"
                 onChange={(e) => setUsername(e.target.value)}
               />
               <input
-                className="my-1"
+                className="my-1 text-input"
                 type="password"
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}

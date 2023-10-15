@@ -9,7 +9,7 @@ export default function TodoList() {
     <>
       <Window title="Todo List" color="primary" dismissable="back">
         <Button.Group>
-          <input autoFocus type="text" placeholder="Start typing to filter..." />
+          <input className="text-input" autoFocus type="text" placeholder="Start typing to filter..." />
           <Button disabled>Clear</Button>
         </Button.Group>
         <Table>

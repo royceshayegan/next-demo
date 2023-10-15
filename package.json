@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "bcryptjs": "^2.4.3",
     "mongoose": "^7.6.2",
     "next": "13.5.4",

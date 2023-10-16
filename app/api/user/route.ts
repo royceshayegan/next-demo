@@ -29,7 +29,6 @@ export async function GET(req: NextRequest) {
   try {
     await connectMongoDB();
     const params = await req.nextUrl.searchParams;
-    // console.log(params.get('username'));
     const username = params.get('username');
     const user = await User.findOne({ username }).select("_id");
     return NextResponse.json({user});

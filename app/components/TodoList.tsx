@@ -142,7 +142,6 @@ export default function TodoList() {
         <Button.Group>
           <div className="form-control">
             <input
-              id="filter-tasks"
               autoFocus
               type="text"
               value={filter}
@@ -201,29 +200,30 @@ export default function TodoList() {
             </tbody>
           </Table>
         </div>
-        <div id="todo-actions" className="btn-group btn-group-end" role="group">
-          <button
-            className="btn filled-neutral"
+        <Button.Group id="todo-actions">
+
+          <Button
+            color="neutral"
             disabled={!selectedTask}
             onClick={() => removeTask(selectedTask)}
           >
             Remove
-          </button>
+          </Button>
 
-          <button
-            className="btn filled-neutral"
+          <Button
+            color="neutral"
             disabled={!selectedTask}
             onClick={() => setIsEditTaskDialogOpen(true)}
           >
             Edit
-          </button>
-          <button
-            className="btn filled-accent"
+          </Button>
+          <Button
+            color="accent"
             onClick={() => setIsNewTaskDialogOpen(true)}
           >
             New Task
-          </button>
-        </div>
+          </Button>
+        </Button.Group>
       </Window>
       {/* New Task */}
       <Dialog

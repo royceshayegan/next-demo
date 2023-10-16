@@ -1,7 +1,9 @@
 export default function Table({
+  id,
   className,
   children,
 }: {
+  id?: string;
   className?: string;
   children: React.ReactNode;
 }) {
@@ -9,7 +11,7 @@ export default function Table({
   const combinedClasses: string = `${baseClass} ${className || ""}`;
   return (
     <>
-      <div className={combinedClasses}>
+      <div id={id} className={combinedClasses}>
         <table>{children}</table>
       </div>
     </>

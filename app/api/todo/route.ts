@@ -21,15 +21,11 @@ export async function POST(req: NextRequest) {
     await connectMongoDB();
     const params = await req.nextUrl.searchParams;
     const newTask = await req.json();
-    console.log("new task is: ", newTask);
-    console.log(params.get('username'));
     const username = params.get('username');
     const user = await User.findOne({ username });
-    console.log("user is: ", user);
     if (user) {
       user.tasks.push(newTask);
       await user.save();
-      console.log(user);
     }
     return NextResponse.json({message: 'task created', status: 201 });
   } catch (error) {
@@ -66,7 +62,6 @@ export async function DELETE(req: NextRequest) {
     const user = await User.findOne({ username });
     if (user) {
       const task = user.tasks.id(taskId);
-      console.log(task);
       user.tasks.pull(task);
       await user.save();
     }

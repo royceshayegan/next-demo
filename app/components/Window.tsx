@@ -4,6 +4,7 @@ import { ColorType, SizeType } from "./types";
 // This is buggy with tailwind classes. Relies on making a duplicate set of classes just to satisfy the component.
 // TODO: find a way to integrate with utilities or remove altogether.
 export default function Window({
+  id,
   color,
   size,
   className,
@@ -11,6 +12,7 @@ export default function Window({
   onDismiss,
   children,
 }: {
+  id?: string;
   color?: ColorType;
   size?: SizeType;
   className?: string;

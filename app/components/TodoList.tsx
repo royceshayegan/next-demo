@@ -32,21 +32,30 @@ export default function TodoList() {
     }
   }
 
-  function editTask(id: string, description: string) {
-    fetch(
-      `api/todo?username=${encodeURIComponent(
-        // @ts-ignore
-        session?.user.username
-      )}&task=${encodeURIComponent(id)}`,
-      {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          description: description,
-          date: "Today",
-        }),
+  async function editTask() {
+    console.log("EEEEEE", selectedTask);
+    try {
+      const res = await fetch(
+        `api/todo?username=${encodeURIComponent(
+          // @ts-ignore
+          session?.user.username
+        )}&task=${encodeURIComponent(selectedTask)}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            description: description,
+            date: "Today",
+          }),
+        }
+      );
+      if (res.ok) {
+        getTasks();
       }
-    );
+      setIsEditTaskDialogOpen(false);
+    } catch (error) {
+      console.log("couldn't create the task: ", error);
+    }
   }
 
   async function newTask() {
@@ -69,7 +78,6 @@ export default function TodoList() {
         getTasks();
       }
       setIsNewTaskDialogOpen(false);
-
     } catch (error) {
       console.log("couldn't create the task: ", error);
     }
@@ -92,10 +100,8 @@ export default function TodoList() {
           getTasks();
         }
       }
-      
     } catch (error) {
       console.log("couldn't remove the task: ", error);
-      
     }
   }
 
@@ -110,7 +116,9 @@ export default function TodoList() {
     const handleOutsideClick = (e: any) => {
       if (
         !e.target.closest("#todo-list") &&
-        !e.target.closest("#todo-actions")
+        !e.target.closest("#todo-actions") &&
+        !e.target.closest("#edit-task-dialog") &&
+        !e.target.closest("#new-task-dialog")
       ) {
         setSelectedTask("");
       }
@@ -123,8 +131,12 @@ export default function TodoList() {
   console.log(selectedTask);
   return (
     <>
-      <Window title="Todo List" color="primary" onDismiss={() => {}} className="relative">
-      
+      <Window
+        title="Todo List"
+        color="primary"
+        onDismiss={() => {}}
+        className="relative"
+      >
         <Button.Group>
           <div className="form-control">
             <input
@@ -210,6 +222,7 @@ export default function TodoList() {
       </Window>
       {/* New Task */}
       <Dialog
+        id="new-task-dialog"
         open={isNewTaskDialogOpen}
         onClose={() => setIsNewTaskDialogOpen(false)}
         className="w-full h-full flex justify-center"
@@ -230,18 +243,21 @@ export default function TodoList() {
             />
           </div>
           <Button.Group>
-            <Button color="accent" onClick={newTask}>Ok</Button>
+            <Button color="accent" onClick={newTask}>
+              Ok
+            </Button>
           </Button.Group>
         </Window>
       </Dialog>
       {/* Edit Task */}
       <Dialog
-        open={isNewTaskDialogOpen}
+        id="edit-task-dialog"
+        open={isEditTaskDialogOpen}
         onClose={() => setIsEditTaskDialogOpen(false)}
         className="w-full h-full flex justify-center"
       >
         <Window
-          title="New Task"
+          title="Edit Task"
           color="primary"
           onDismiss={() => setIsEditTaskDialogOpen(false)}
           className="max-w-md absolute top-[25rem]"
@@ -250,13 +266,15 @@ export default function TodoList() {
             <input
               type="text"
               autoFocus
-              placeholder="What should you do?"
+              placeholder="What should you do instead?"
               onChange={(e) => setDescription(e.target.value)}
               required
             />
           </div>
           <Button.Group>
-            <Button color="accent" onClick={editTask}>Ok</Button>
+            <Button color="accent" onClick={editTask}>
+              Ok
+            </Button>
           </Button.Group>
         </Window>
       </Dialog>

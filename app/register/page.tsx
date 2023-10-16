@@ -27,10 +27,13 @@ export default function Register() {
     }
     try {
       // check if user exists
-      const resUserExists = await fetch(`api/user?username=${encodeURIComponent(username)}`, {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-      });
+      const resUserExists = await fetch(
+        `api/user?username=${encodeURIComponent(username)}`,
+        {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
       const { user } = await resUserExists.json();
       if (user) {
         setError("I already know someone with that username.");
@@ -53,16 +56,16 @@ export default function Register() {
             password,
             redirect: false,
           });
-    
+
           if (res?.error) {
             setError("Invalid credentials.");
             return;
           }
-    
+
           const form = e.target;
           form.reset();
-          setUsername('');
-          setPassword('');
+          setUsername("");
+          setPassword("");
           router.replace("/");
         } catch (error) {
           console.log(error);
@@ -91,7 +94,6 @@ export default function Register() {
                   placeholder="Username"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  required
                 />
               </div>
               <div className="form-control">
@@ -100,17 +102,16 @@ export default function Register() {
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  required
                 />
               </div>
               {error && (
-                <span className="text-sm filled-error px-3 py-1 mt-1">
-                  {error}
-                </span>
+                <div className="filled-error px-3 py-1 mt-1 inline-block">
+                  <span className="text-base">{error}</span>
+                </div>
               )}
               <Button.Group>
                 <Link href="/login">
-                  <Button type="button" variant="flat" color="neutral">
+                  <Button type="button" color="neutral">
                     I've been here before
                   </Button>
                 </Link>

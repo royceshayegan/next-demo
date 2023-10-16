@@ -15,7 +15,16 @@ export default function Login() {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-
+    if (!username && password) {
+      setError("I need to know what to call you.");
+      return;
+    } else if (!password && username) {
+      setError("What about your password?");
+      return;
+    } else if (!username && !password) {
+      setError("You haven't told me anything.");
+      return;
+    }
     try {
       const res = await signIn("credentials", {
         username,
@@ -50,7 +59,6 @@ export default function Login() {
                   name="username"
                   placeholder="Username"
                   value={username}
-                  required
                   onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
@@ -59,18 +67,17 @@ export default function Login() {
                   type="password"
                   placeholder="Password"
                   value={password}
-                  required
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               {error && (
-                <span className="text-sm filled-error px-3 py-1 mt-1">
-                  {error}
-                </span>
+                <div className="filled-error px-3 py-1 mt-1 inline-block">
+                  <span className="text-base">{error}</span>
+                </div>
               )}
               <Button.Group>
                 <Link href="/register">
-                  <Button type="button" variant="flat" color="neutral">
+                  <Button type="button" color="neutral">
                     I'm new here
                   </Button>
                 </Link>

@@ -40,14 +40,14 @@ export default function TodoList() {
     }
   }
 
-  async function editTask(e: any) {
+  function editTask(e: any) {
     e.preventDefault();
     if (!description) {
       setError("You wanted to change something...");
       return;
     }
     try {
-      const res = await fetch(
+      fetch(
         `api/todo?username=${encodeURIComponent(
           // @ts-ignore
           session?.user?.username
@@ -60,10 +60,11 @@ export default function TodoList() {
             date: "Today",
           }),
         }
-      );
-      if (res.ok) {
-        getTasks();
-      }
+      ).then((res) => {
+        if (res.ok) {
+          getTasks();
+        }
+      });
       setDescription("");
       setIsEditTaskDialogOpen(false);
     } catch (error) {
@@ -71,14 +72,14 @@ export default function TodoList() {
     }
   }
 
-  async function newTask(e: any) {
+  function newTask(e: any) {
     e.preventDefault();
     if (!description) {
       setError("You can't just do nothing all day.");
       return;
     }
     try {
-      const res = await fetch(
+      fetch(
         `api/todo?username=${encodeURIComponent(
           // @ts-ignore
           session?.user?.username
@@ -91,10 +92,11 @@ export default function TodoList() {
             date: "Today",
           }),
         }
-      );
-      if (res.ok) {
-        getTasks();
-      }
+      ).then((res) => {
+        if (res.ok) {
+          getTasks();
+        }
+      });
       setDescription("");
       setIsNewTaskDialogOpen(false);
     } catch (error) {
@@ -102,22 +104,23 @@ export default function TodoList() {
     }
   }
 
-  async function removeTask(id: string) {
+  function removeTask() {
     try {
       if (status === "authenticated" && session) {
-        const res = await fetch(
+        fetch(
           `api/todo?username=${encodeURIComponent(
             // @ts-ignore
             session?.user?.username
-          )}&task=${encodeURIComponent(id)}`,
+          )}&task=${encodeURIComponent(selectedTask)}`,
           {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
           }
-        );
-        if (res.ok) {
-          getTasks();
-        }
+        ).then((res) => {
+          if (res.ok) {
+            getTasks();
+          }
+        });
       }
     } catch (error) {
       console.log("couldn't remove the task: ", error);
@@ -220,7 +223,7 @@ export default function TodoList() {
           <Button
             color="neutral"
             disabled={!selectedTask}
-            onClick={() => removeTask(selectedTask)}
+            onClick={removeTask}
           >
             Remove
           </Button>

@@ -33,25 +33,32 @@ export default function Navbar() {
 
   useEffect(() => {
     if (!mounted) {
-      // @ts-ignore
-      if (status === "authenticated" && session?.user?.preferredTheme) {
-        let index = 0;
+      const storedPreferredTheme = localStorage.getItem("preferredTheme");
+      let preferredTheme: string = "Default";
+      let index = 0;
+      if (storedPreferredTheme) {
+        preferredTheme = storedPreferredTheme;
+      } else {
         // @ts-ignore
-
-        const preferredTheme: string = session.user.preferredTheme;
-        console.log(preferredTheme);
-        if (preferredTheme === "Default") {
-          index = 0;
-        } else if (preferredTheme === "Moonlight") {
-          index = 1;
+        if (status === "authenticated" && session?.user?.preferredTheme) {
+          // @ts-ignore
+          preferredTheme = session?.user?.preferredTheme || "Default";
         }
-        setSelectedTheme(theme[index]);
-        document.documentElement.setAttribute(
-          "data-theme",
-          theme[index].name.toLowerCase()
-        );
-        setMounted(true);
       }
+      console.log(preferredTheme);
+      if (preferredTheme === "Default") {
+        index = 0;
+      } else if (preferredTheme === "Moonlight") {
+        index = 1;
+      }
+      setSelectedTheme(theme[index]);
+      document.documentElement.setAttribute(
+        "data-theme",
+        theme[index].name.toLowerCase()
+      );
+      localStorage.setItem("preferredTheme", preferredTheme);
+
+      setMounted(true);
     } else {
       document.documentElement.setAttribute(
         "data-theme",
@@ -66,7 +73,7 @@ export default function Navbar() {
           theme: selectedTheme.name,
         }),
       });
-      // updatePreferredTheme();
+      localStorage.setItem("preferredTheme", selectedTheme.name);
     }
   }, [selectedTheme, session, status]);
   return (

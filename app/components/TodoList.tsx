@@ -19,7 +19,7 @@ export default function TodoList() {
   function getTasks() {
     if (status === "authenticated" && session) {
       // @ts-ignore
-      fetch(`api/todo?username=${encodeURIComponent(session?.user.username)}`, {
+      fetch(`api/todo?username=${encodeURIComponent(session?.user?.username)}`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       })

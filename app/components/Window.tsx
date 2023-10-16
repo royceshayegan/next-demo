@@ -8,14 +8,14 @@ export default function Window({
   size,
   className,
   title,
-  dismissable,
+  onDismiss,
   children,
 }: {
   color?: ColorType;
   size?: SizeType;
   className?: string;
   title: string;
-  dismissable?: string;
+  onDismiss?: React.MouseEventHandler<HTMLButtonElement>;
   children: React.ReactNode;
 }) {
   const baseClass = "window";
@@ -29,8 +29,8 @@ export default function Window({
       <div className={combinedClasses}>
         <div className={`window-titlebar ${colorClass}`}>
           <h1>{title}</h1>
-          {dismissable && (
-            <Button variant="close" color="error">X</Button>
+          {onDismiss && (
+            <Button variant="close" color="error" onClick={onDismiss}>X</Button>
           )}
         </div>
         <div className="window-content">{children}</div>

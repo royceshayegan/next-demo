@@ -62,7 +62,7 @@ export default function Register() {
           <Window
             color="primary"
             title="I don't remember you..."
-            dismissable="back to login"
+            onDismiss={() => {}}
           >
             <form onSubmit={handleSubmit}>
               <div className="form-control">

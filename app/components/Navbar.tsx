@@ -19,18 +19,6 @@ export default function Navbar() {
   const [selectedTheme, setSelectedTheme] = useState(theme[0]);
   const [mounted, setMounted] = useState(false);
 
-  async function updatePreferredTheme() {
-    // @ts-ignore
-    const username = await session?.user?.username;
-    await fetch(`api/user?username=${encodeURIComponent(username)}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        theme: selectedTheme.name,
-      }),
-    });
-  }
-
   useEffect(() => {
     if (!mounted) {
       const storedPreferredTheme = localStorage.getItem("preferredTheme");

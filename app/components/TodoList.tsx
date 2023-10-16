@@ -16,7 +16,6 @@ export default function TodoList() {
   const [description, setDescription] = useState("");
   const [filter, setFilter] = useState("");
 
-
   function getTasks() {
     if (status === "authenticated" && session) {
       // @ts-ignore
@@ -32,7 +31,8 @@ export default function TodoList() {
     }
   }
 
-  async function editTask() {
+  async function editTask(e: any) {
+    e.preventDefault();
     try {
       const res = await fetch(
         `api/todo?username=${encodeURIComponent(
@@ -51,13 +51,15 @@ export default function TodoList() {
       if (res.ok) {
         getTasks();
       }
+      setDescription("");
       setIsEditTaskDialogOpen(false);
     } catch (error) {
       console.log("couldn't create the task: ", error);
     }
   }
 
-  async function newTask() {
+  async function newTask(e: any) {
+    e.preventDefault();
     try {
       const res = await fetch(
         `api/todo?username=${encodeURIComponent(
@@ -76,6 +78,7 @@ export default function TodoList() {
       if (res.ok) {
         getTasks();
       }
+      setDescription("");
       setIsNewTaskDialogOpen(false);
     } catch (error) {
       console.log("couldn't create the task: ", error);
@@ -105,7 +108,7 @@ export default function TodoList() {
   }
 
   useEffect(() => {
-      getTasks();
+    getTasks();
   }, []);
 
   useEffect(() => {
@@ -142,7 +145,11 @@ export default function TodoList() {
               onChange={(e) => setFilter(e.target.value)}
             />
           </div>
-          <Button disabled={!filter} color="neutral" onClick={() => setFilter('')}>
+          <Button
+            disabled={!filter}
+            color="neutral"
+            onClick={() => setFilter("")}
+          >
             Clear
           </Button>
         </Button.Group>
@@ -191,7 +198,6 @@ export default function TodoList() {
           </Table>
         </div>
         <Button.Group id="todo-actions">
-
           <Button
             color="neutral"
             disabled={!selectedTask}
@@ -207,10 +213,7 @@ export default function TodoList() {
           >
             Edit
           </Button>
-          <Button
-            color="accent"
-            onClick={() => setIsNewTaskDialogOpen(true)}
-          >
+          <Button color="accent" onClick={() => setIsNewTaskDialogOpen(true)}>
             New Task
           </Button>
         </Button.Group>
@@ -228,6 +231,8 @@ export default function TodoList() {
           onDismiss={() => setIsNewTaskDialogOpen(false)}
           className="max-w-md absolute top-[25rem]"
         >
+          <form onSubmit={newTask}>
+
           <div className="form-control">
             <input
               type="text"
@@ -235,13 +240,14 @@ export default function TodoList() {
               placeholder="What should you do?"
               onChange={(e) => setDescription(e.target.value)}
               required
-            />
+              />
           </div>
           <Button.Group>
-            <Button color="accent" onClick={newTask}>
+            <Button color="accent" type="submit">
               Ok
             </Button>
           </Button.Group>
+              </form>
         </Window>
       </Dialog>
       {/* Edit Task */}
@@ -257,20 +263,22 @@ export default function TodoList() {
           onDismiss={() => setIsEditTaskDialogOpen(false)}
           className="max-w-md absolute top-[25rem]"
         >
-          <div className="form-control">
-            <input
-              type="text"
-              autoFocus
-              placeholder="What should you do instead?"
-              onChange={(e) => setDescription(e.target.value)}
-              required
-            />
-          </div>
-          <Button.Group>
-            <Button color="accent" onClick={editTask}>
-              Ok
-            </Button>
-          </Button.Group>
+          <form onSubmit={editTask}>
+            <div className="form-control">
+              <input
+                type="text"
+                autoFocus
+                placeholder="What should you do instead?"
+                onChange={(e) => setDescription(e.target.value)}
+                required
+              />
+            </div>
+            <Button.Group>
+              <Button color="accent" type="submit">
+                Ok
+              </Button>
+            </Button.Group>
+          </form>
         </Window>
       </Dialog>
     </>

@@ -3,6 +3,8 @@ import { useState } from "react";
 import Window from "@/app/components/Window";
 import Button from "@/app/components/Button";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
+
 import Link from "next/link";
 
 export default function Register() {
@@ -43,11 +45,28 @@ export default function Register() {
           password,
         }),
       });
-      // when successful, go to login.
+      // when successful, automatically login.
       if (res.ok) {
-        const form = e.target;
-        form.reset();
-        router.push("/login");
+        try {
+          const res = await signIn("credentials", {
+            username,
+            password,
+            redirect: false,
+          });
+    
+          if (res?.error) {
+            setError("Invalid credentials.");
+            return;
+          }
+    
+          const form = e.target;
+          form.reset();
+          setUsername('');
+          setPassword('');
+          router.replace("/");
+        } catch (error) {
+          console.log(error);
+        }
       } else {
         console.log("user creation failed.");
       }

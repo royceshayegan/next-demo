@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { signIn, SignInResponse } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import Window from "@/app/components/Window";
 import Button from "@/app/components/Button";
 import { useRouter } from "next/navigation";
@@ -70,7 +70,7 @@ export default function Login() {
               )}
               <Button.Group>
                 <Link href="/register">
-                  <Button type="button"  color="neutral">
+                  <Button type="button" variant="flat" color="neutral">
                     I'm new here
                   </Button>
                 </Link>

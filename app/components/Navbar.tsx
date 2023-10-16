@@ -99,7 +99,8 @@ export default function Navbar() {
         </Button>
       </div>
       <div className="absolute top-navbar right-0 flex mt-3 justify-end px-3 text-on-wallpaper-color">
-        {session && (
+        {/* @ts-ignore */}
+        {session?.user?.username && (
           // @ts-ignore
           <span>Logged in as {session?.user?.username}</span>
         )}

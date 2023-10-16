@@ -37,7 +37,7 @@ export default function TodoList() {
       const res = await fetch(
         `api/todo?username=${encodeURIComponent(
           // @ts-ignore
-          session?.user.username
+          session?.user?.username
         )}&task=${encodeURIComponent(selectedTask)}`,
         {
           method: "PUT",
@@ -64,7 +64,7 @@ export default function TodoList() {
       const res = await fetch(
         `api/todo?username=${encodeURIComponent(
           // @ts-ignore
-          session?.user.username
+          session?.user?.username
         )}`,
         {
           method: "POST",
@@ -91,7 +91,7 @@ export default function TodoList() {
         const res = await fetch(
           `api/todo?username=${encodeURIComponent(
             // @ts-ignore
-            session?.user.username
+            session?.user?.username
           )}&task=${encodeURIComponent(id)}`,
           {
             method: "DELETE",

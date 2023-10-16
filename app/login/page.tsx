@@ -70,7 +70,7 @@ export default function Login() {
               )}
               <Button.Group>
                 <Link href="/register">
-                  <Button type="button" variant="flat" color="neutral">
+                  <Button type="button"  color="neutral">
                     I'm new here
                   </Button>
                 </Link>

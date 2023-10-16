@@ -1,5 +1,10 @@
 import mongoose, {Schema, models} from 'mongoose';
 
+export const defaultTasks = {
+    description: "You have nothing to do.",
+    date: "Today",
+  };
+
 const taskSchema = new Schema({
     description: {
         type: String,

@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { AuthProvider } from "./components/Provider";
-import Navbar from "./components/Navbar";
+import { AuthProvider } from "@/app/components/Provider";
+import Navbar from "@/app/components/Navbar";
 
 export const metadata: Metadata = {
   title: "Next Demo App",

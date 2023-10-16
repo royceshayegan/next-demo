@@ -1,9 +1,11 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { connectMongoDB } from "@/lib/mongodb";
 import User from "@/lib/models/user";
+import Task, { defaultTasks } from "@/lib/models/task";
 import bcrypt from "bcryptjs";
 
-export async function POST(req) {
+export async function POST(req: NextRequest) {
+  
   try {
     const { username, password } = await req.json();
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -12,7 +14,7 @@ export async function POST(req) {
       username,
       password: hashedPassword,
       preferredTheme: "default",
-      tasks: [""],
+      tasks: [defaultTasks],
     });
 
     return NextResponse.json({ message: "User created.", status: 201 });
@@ -24,16 +26,15 @@ export async function POST(req) {
   }
 }
 
-export async function GET(req) {
+export async function GET(req: NextRequest) {
   try {
     await connectMongoDB();
-    // const userExists = await User.exists({username});
-    const { username } = await req.query;
-    console.log(username);
-    // const user = await User.findOne({ username }).select("_id");
-    return NextResponse.json({ message: 'success :)' }, { status: 200 })
+    const params = await req.nextUrl.searchParams;
+    console.log(params.get('username'));
+    const username = params.get('username');
+    const user = await User.findOne({ username }).select("_id");
+    return NextResponse.json({user});
   } catch (error) {
-    console.log(error);
-    return NextResponse.json();
+    return NextResponse.json({error: error});
   }
 }

@@ -1,4 +1,3 @@
-"use client";
 import Window from "./Window";
 import Button from "./Button";
 import Table from "./Table";

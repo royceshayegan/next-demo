@@ -1,5 +1,5 @@
 import mongoose, {Schema, models} from 'mongoose';
-
+import Task from './task';
 const userSchema = new Schema({
     username: {
         type: String,
@@ -13,10 +13,16 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    tasks: {
-        type: Array,
-        required: false,
-    }
+    tasks: [{
+        description: {
+            type: String,
+            required: true,
+        },
+        date: {
+            type: String,
+            required: true,
+        }
+    }],
 }, {timestamps: true});
 
 const User = models.User || mongoose.model("User", userSchema);

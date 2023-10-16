@@ -59,24 +59,4 @@ function Group({
     )
 }
 
-// function Divider({
-//   alignment,
-//   children,
-// }: {
-//   alignment?: AlignmentType;
-//   children: React.ReactNode;
-// }) {
-//   const baseClass: string = "btn-group";
-//   const alignmentClass: string = alignment ? `btn-group-${alignment}` : 'btn-group-end';
-//   const combinedClasses: string = `${baseClass} ${alignmentClass}`;
-//     return (
-//         <>
-//             <div className="">
-//               {children}
-//             </div>
-//         </>
-//     )
-// }
-
 Button.Group = Group;
-// Button.Divider = Divider;

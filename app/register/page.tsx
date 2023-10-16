@@ -24,19 +24,18 @@ export default function Register() {
       return;
     }
     try {
-      const resUserExists = await fetch("api/userExists", {
-        method: "POST",
+      // check if user exists
+      const resUserExists = await fetch(`api/user?username=${encodeURIComponent(username)}`, {
+        method: "GET",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username,
-        }),
       });
       const { user } = await resUserExists.json();
       if (user) {
         setError("I already know someone with that username.");
         return;
       }
-      const res = await fetch("/api/register", {
+      // create a user if user is available
+      const res = await fetch("/api/user", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -44,6 +43,7 @@ export default function Register() {
           password,
         }),
       });
+      // when successful, go to login.
       if (res.ok) {
         const form = e.target;
         form.reset();

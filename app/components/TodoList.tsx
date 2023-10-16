@@ -2,9 +2,9 @@
 import Window from "./Window";
 import Button from "./Button";
 import Table from "./Table";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
-import { Session } from "next-auth";
+import { Dialog } from '@headlessui/react'
 
 export default function TodoList() {
   const { data: session, status } = useSession();
@@ -14,8 +14,6 @@ export default function TodoList() {
 
   function getTasks() {
     if (status === "authenticated" && session) {
-      // @ts-ignore
-      console.log("USERNAME IS: ", session?.user.username);
       // @ts-ignore
       fetch(`api/todo?username=${encodeURIComponent(session?.user.username)}`, {
         method: "GET",

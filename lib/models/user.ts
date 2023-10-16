@@ -1,5 +1,4 @@
 import mongoose, {Schema, models} from 'mongoose';
-import Task from './task';
 const userSchema = new Schema({
     username: {
         type: String,

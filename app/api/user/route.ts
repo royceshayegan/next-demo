@@ -37,3 +37,20 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({error: error});
   }
 }
+
+export async function PUT(req: NextRequest) {
+  try {
+    await connectMongoDB();
+    const params = await req.nextUrl.searchParams;
+    const newTheme = await req.json();
+    const username = params.get('username');
+    const user = await User.findOne({ username });
+    if (user) {
+      user.preferredTheme = newTheme.theme;
+      await user.save();
+    }
+    return NextResponse.json({message: 'user updated', status: 200 });
+  } catch (error) {
+    return NextResponse.json({error: error});
+  }
+}

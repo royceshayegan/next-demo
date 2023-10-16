@@ -99,7 +99,7 @@
     --on-primary: var(--white);
     --on-secondary: var(--half-black);
     --on-tertiary: var(--half-black);
-    --on-accent: var(--white);
+    --on-accent: var(--half-black);
     --on-success: var(--half-black);
     --on-warning: var(--half-black);
     --on-error: var(--white);

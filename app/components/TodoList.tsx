@@ -27,7 +27,6 @@ export default function TodoList() {
       })
         .then((res) => res.json())
         .then((data) => {
-          // console.log("fetched tasks: ", data.tasks);
           setTasks(data.tasks);
           setLoading(false);
         });
@@ -35,7 +34,6 @@ export default function TodoList() {
   }
 
   async function editTask() {
-    console.log("EEEEEE", selectedTask);
     try {
       const res = await fetch(
         `api/todo?username=${encodeURIComponent(
@@ -130,7 +128,6 @@ export default function TodoList() {
       document.body.removeEventListener("mousedown", handleOutsideClick);
     };
   }, []);
-  console.log(selectedTask);
   return (
     <>
       <Window
@@ -153,9 +150,6 @@ export default function TodoList() {
             Clear
           </Button>
         </Button.Group>
-        {/* <div className="table-container">
-        <div className="flex justify-start text-on-neutral items-start pt-3 px-3">You have nothing to do yet.</div>
-        </div> */}
         <div id="todo-list">
           <Table>
             <thead>

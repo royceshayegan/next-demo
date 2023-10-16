@@ -19,7 +19,7 @@ export default function TodoList() {
 
   // When dialogs get dismissed, reset the error state.
   useEffect(() => {
-      setError("");
+    setError("");
   }, [isEditTaskDialogOpen, isNewTaskDialogOpen]);
 
   function getTasks() {
@@ -60,13 +60,16 @@ export default function TodoList() {
             date: "Today",
           }),
         }
-      ).then((res) => {
-        if (res.ok) {
-          getTasks();
-        }
-      });
-      setDescription("");
-      setIsEditTaskDialogOpen(false);
+      )
+        .then((res) => {
+          if (res.ok) {
+            getTasks();
+          }
+        })
+        .then(() => {
+          setDescription("");
+          setIsEditTaskDialogOpen(false);
+        });
     } catch (error) {
       console.log("couldn't create the task: ", error);
     }
@@ -92,13 +95,16 @@ export default function TodoList() {
             date: "Today",
           }),
         }
-      ).then((res) => {
-        if (res.ok) {
-          getTasks();
-        }
-      });
-      setDescription("");
-      setIsNewTaskDialogOpen(false);
+      )
+        .then((res) => {
+          if (res.ok) {
+            getTasks();
+          }
+        })
+        .then(() => {
+          setDescription("");
+          setIsNewTaskDialogOpen(false);
+        });
     } catch (error) {
       console.log("couldn't create the task: ", error);
     }
@@ -116,11 +122,13 @@ export default function TodoList() {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
           }
-        ).then((res) => {
-          if (res.ok) {
-            getTasks();
-          }
-        });
+        )
+          .then((res) => {
+            if (res.ok) {
+              getTasks();
+            }
+          })
+          .then(() => setSelectedTask(""));
       }
     } catch (error) {
       console.log("couldn't remove the task: ", error);
@@ -220,11 +228,7 @@ export default function TodoList() {
           </Table>
         </div>
         <Button.Group id="todo-actions">
-          <Button
-            color="neutral"
-            disabled={!selectedTask}
-            onClick={removeTask}
-          >
+          <Button color="neutral" disabled={!selectedTask} onClick={removeTask}>
             Remove
           </Button>
 
@@ -263,12 +267,16 @@ export default function TodoList() {
               />
             </div>
             {error && (
-                <div className="filled-error px-3 py-1 mt-1 inline-block">
-                  <span className="text-base">{error}</span>
-                </div>
-              )}
+              <div className="filled-error px-3 py-1 mt-1 inline-block">
+                <span className="text-base">{error}</span>
+              </div>
+            )}
             <Button.Group>
-            <Button color="neutral" type="button" onClick={() => setIsNewTaskDialogOpen(false)}>
+              <Button
+                color="neutral"
+                type="button"
+                onClick={() => setIsNewTaskDialogOpen(false)}
+              >
                 Cancel
               </Button>
               <Button color="accent" type="submit">
@@ -301,12 +309,16 @@ export default function TodoList() {
               />
             </div>
             {error && (
-                <div className="filled-error px-3 py-1 mt-1 inline-block">
-                  <span className="text-base">{error}</span>
-                </div>
-              )}
+              <div className="filled-error px-3 py-1 mt-1 inline-block">
+                <span className="text-base">{error}</span>
+              </div>
+            )}
             <Button.Group>
-            <Button color="neutral" type="button" onClick={() => setIsEditTaskDialogOpen(false)}>
+              <Button
+                color="neutral"
+                type="button"
+                onClick={() => setIsEditTaskDialogOpen(false)}
+              >
                 Cancel
               </Button>
               <Button color="accent" type="submit">

@@ -15,14 +15,23 @@ export default function TodoList() {
   const [isEditTaskDialogOpen, setIsEditTaskDialogOpen] = useState(false);
   const [description, setDescription] = useState("");
   const [filter, setFilter] = useState("");
+  const [error, setError] = useState("");
+
+  // When dialogs get dismissed, reset the error state.
+  useEffect(() => {
+      setError("");
+  }, [isEditTaskDialogOpen, isNewTaskDialogOpen]);
 
   function getTasks() {
     if (status === "authenticated" && session) {
-      // @ts-ignore
-      fetch(`api/todo?username=${encodeURIComponent(session?.user?.username)}`, {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-      })
+      fetch(
+        // @ts-ignore
+        `api/todo?username=${encodeURIComponent(session?.user?.username)}`,
+        {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           setTasks(data.tasks);
@@ -33,6 +42,10 @@ export default function TodoList() {
 
   async function editTask(e: any) {
     e.preventDefault();
+    if (!description) {
+      setError("You wanted to change something...");
+      return;
+    }
     try {
       const res = await fetch(
         `api/todo?username=${encodeURIComponent(
@@ -60,6 +73,10 @@ export default function TodoList() {
 
   async function newTask(e: any) {
     e.preventDefault();
+    if (!description) {
+      setError("You can't just do nothing all day.");
+      return;
+    }
     try {
       const res = await fetch(
         `api/todo?username=${encodeURIComponent(
@@ -107,10 +124,12 @@ export default function TodoList() {
     }
   }
 
+  // Get tasks on load.
   useEffect(() => {
     getTasks();
   }, []);
 
+  // Deselect tasks when clicking outside of certain elements.
   useEffect(() => {
     const handleOutsideClick = (e: any) => {
       if (
@@ -232,22 +251,28 @@ export default function TodoList() {
           className="max-w-md absolute top-[25rem]"
         >
           <form onSubmit={newTask}>
-
-          <div className="form-control">
-            <input
-              type="text"
-              autoFocus
-              placeholder="What should you do?"
-              onChange={(e) => setDescription(e.target.value)}
-              required
+            <div className="form-control">
+              <input
+                type="text"
+                autoFocus
+                placeholder="What should you do?"
+                onChange={(e) => setDescription(e.target.value)}
               />
-          </div>
-          <Button.Group>
-            <Button color="accent" type="submit">
-              Ok
-            </Button>
-          </Button.Group>
-              </form>
+            </div>
+            {error && (
+                <div className="filled-error px-3 py-1 mt-1 inline-block">
+                  <span className="text-base">{error}</span>
+                </div>
+              )}
+            <Button.Group>
+            <Button color="neutral" type="button" onClick={() => setIsNewTaskDialogOpen(false)}>
+                Cancel
+              </Button>
+              <Button color="accent" type="submit">
+                Ok
+              </Button>
+            </Button.Group>
+          </form>
         </Window>
       </Dialog>
       {/* Edit Task */}
@@ -270,10 +295,17 @@ export default function TodoList() {
                 autoFocus
                 placeholder="What should you do instead?"
                 onChange={(e) => setDescription(e.target.value)}
-                required
               />
             </div>
+            {error && (
+                <div className="filled-error px-3 py-1 mt-1 inline-block">
+                  <span className="text-base">{error}</span>
+                </div>
+              )}
             <Button.Group>
+            <Button color="neutral" type="button" onClick={() => setIsEditTaskDialogOpen(false)}>
+                Cancel
+              </Button>
               <Button color="accent" type="submit">
                 Ok
               </Button>

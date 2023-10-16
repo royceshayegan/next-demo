@@ -46,11 +46,7 @@ export default function Login() {
     <>
       <div className="flex justify-center pt-24 lg:pt-48 items-start mx-[4%]">
         <div className="flex flex-col max-w-sm w-full">
-          <Window
-            color="primary"
-            title="Welcome back"
-            onDismiss={() => {}}
-          >
+          <Window color="primary" title="Welcome back" onDismiss={() => {}}>
             <form onSubmit={handleSubmit}>
               <div className="form-control">
                 <input

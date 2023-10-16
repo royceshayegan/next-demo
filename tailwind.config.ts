@@ -27,6 +27,12 @@ const config: Config = {
 			...defaultTheme.screens
 		},
     extend: {
+      spacing: {
+        'site': 'var(--site-height)',
+        'navbar': 'var(--navbar-height)',
+        'input': 'var(--input-height)',
+        'button': 'var(--button-height)',
+      },
       height: {
         'site': 'var(--site-height)',
         'navbar': 'var(--navbar-height)',
@@ -38,7 +44,7 @@ const config: Config = {
         '4xl': '2560px',
 			},
       colors: {
-        'wallpaper': 'var(--wallpaper-color)',
+        'wallpaper-color': 'var(--wallpaper-color)',
         'surface': 'var(--surface)',
         'surface-inset': 'var(--surface-inset)',
         'surface-navbar': 'var(--surface-navbar)',
@@ -51,7 +57,7 @@ const config: Config = {
         'success': 'var(--success)',
         'warning': 'var(--warning)',
         'error': 'var(--error)',
-        'on-wallpaper': 'var(--on-wallpaper)',
+        'on-wallpaper-color': 'var(--on-wallpaper-color)',
         'on-surface': 'var(--on-surface)',
         'on-surface-inset': 'var(--on-surface-inset)',
         'on-surface-navbar': 'var(--on-surface-navbar)',

@@ -3,6 +3,7 @@ import Button from "./Button";
 import { signOut } from "next-auth/react";
 import { useState } from "react";
 import { Listbox } from "@headlessui/react";
+import { useSession } from "next-auth/react";
 
 const theme = [
   { id: 1, name: "Default", disabled: false },
@@ -12,37 +13,47 @@ const theme = [
   { id: 5, name: "Dawn", disabled: false },
 ];
 export default function Navbar() {
+  const { data: session } = useSession();
+  // console.log(session);
   const handleSubmit = () => {};
   const [selectedTheme, setSelectedTheme] = useState(theme[0]);
   return (
     <>
-      <div className="flex filled-neutral justify-between items-center h-navbar box w-full px-3">
+      <div className="relative flex filled-neutral justify-between items-center h-navbar box w-full px-3">
         <div className="flex items-center">
-          <h1 className="mr-6">Wind92</h1>
+          <h1 className="mr-3 sm:mr-6">Wind92</h1>
           <Listbox value={selectedTheme} onChange={setSelectedTheme}>
-            <Listbox.Label className="mr-3">Theme:</Listbox.Label>
-            <div className="form-control">
-              <Listbox.Button className="select">
-                {selectedTheme.name}
-                <button className="select-arrow"></button>
-              </Listbox.Button>
-              <Listbox.Options className="select-options">
-                {theme.map((theme) => (
-                  <Listbox.Option
-                    className="select-option"
-                    key={theme.id}
-                    value={theme}
-                    disabled={theme.disabled}
-                  >
-                    {theme.name}
-                  </Listbox.Option>
-                ))}
-              </Listbox.Options>
+              <Listbox.Label className="hidden sm:block sm:mr-3">Theme:</Listbox.Label>
+              <div className="form-control">
+                <Listbox.Button className="select">
+                  {selectedTheme.name}
+                  <div className="select-arrow" role="button"></div>
+                </Listbox.Button>
+                <Listbox.Options className="select-options">
+                  {theme.map((theme) => (
+                    <Listbox.Option
+                      className="select-option"
+                      key={theme.id}
+                      value={theme}
+                      disabled={theme.disabled}
+                    >
+                      {theme.name}
+                    </Listbox.Option>
+                  ))}
+                </Listbox.Options>
             </div>
           </Listbox>
         </div>
 
-        <Button onClick={() => signOut()} color="accent">Logout</Button>
+        <Button disabled={!session} onClick={() => signOut()} color="accent">
+          Logout
+        </Button>
+      </div>
+      <div className="absolute top-navbar right-0 flex mt-3 justify-end px-3 text-on-wallpaper-color">
+        {session && (
+          // @ts-ignore
+          <span>Logged in as {session?.user?.username}</span>
+        )}
       </div>
     </>
   );

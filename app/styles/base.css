@@ -7,7 +7,8 @@
   @apply 3xl:text-lg;
   @apply 4xl:text-2xl;
 }
-  h1 {
-    @apply text-xl;
-  }
+
+h1 {
+  @apply text-xl;
+}
   

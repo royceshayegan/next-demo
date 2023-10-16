@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { connectMongoDB } from "@/lib/mongodb";
 import User from "@/lib/models/user";
-import Task, { defaultTasks } from "@/lib/models/task";
 import bcrypt from "bcryptjs";
 
 export async function POST(req: NextRequest) {
@@ -14,7 +13,7 @@ export async function POST(req: NextRequest) {
       username,
       password: hashedPassword,
       preferredTheme: "default",
-      tasks: [defaultTasks],
+      tasks: [],
     });
 
     return NextResponse.json({ message: "User created.", status: 201 });
@@ -30,7 +29,7 @@ export async function GET(req: NextRequest) {
   try {
     await connectMongoDB();
     const params = await req.nextUrl.searchParams;
-    console.log(params.get('username'));
+    // console.log(params.get('username'));
     const username = params.get('username');
     const user = await User.findOne({ username }).select("_id");
     return NextResponse.json({user});

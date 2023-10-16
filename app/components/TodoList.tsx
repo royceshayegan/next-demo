@@ -13,7 +13,6 @@ export default function TodoList() {
   const [selectedTask, setSelectedTask] = useState("");
   const [isNewTaskDialogOpen, setIsNewTaskDialogOpen] = useState(false);
   const [isEditTaskDialogOpen, setIsEditTaskDialogOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const [description, setDescription] = useState("");
   const [filter, setFilter] = useState("");
 
@@ -106,10 +105,7 @@ export default function TodoList() {
   }
 
   useEffect(() => {
-    if (!mounted) {
       getTasks();
-      setMounted(true);
-    }
   }, []);
 
   useEffect(() => {

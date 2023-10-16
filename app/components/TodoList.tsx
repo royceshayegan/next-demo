@@ -164,7 +164,7 @@ export default function TodoList() {
                   </td>
                 </tr>
               )}
-              {tasks.length === 0 && (
+              {!loading && tasks.length === 0 && (
                 <tr>
                   <td className="p-3">
                     <span>You have nothing to do.</span>
@@ -234,7 +234,32 @@ export default function TodoList() {
           </Button.Group>
         </Window>
       </Dialog>
-      
+      {/* Edit Task */}
+      <Dialog
+        open={isNewTaskDialogOpen}
+        onClose={() => setIsEditTaskDialogOpen(false)}
+        className="w-full h-full flex justify-center"
+      >
+        <Window
+          title="New Task"
+          color="primary"
+          onDismiss={() => setIsEditTaskDialogOpen(false)}
+          className="max-w-md absolute top-[25rem]"
+        >
+          <div className="form-control">
+            <input
+              type="text"
+              autoFocus
+              placeholder="What should you do?"
+              onChange={(e) => setDescription(e.target.value)}
+              required
+            />
+          </div>
+          <Button.Group>
+            <Button color="accent" onClick={editTask}>Ok</Button>
+          </Button.Group>
+        </Window>
+      </Dialog>
     </>
   );
 }

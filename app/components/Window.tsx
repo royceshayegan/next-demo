@@ -1,17 +1,7 @@
 import Button from "./Button";
 import { ColorType, SizeType } from "./types";
 
-// This is buggy with tailwind classes. Relies on making a duplicate set of classes just to satisfy the component.
-// TODO: find a way to integrate with utilities or remove altogether.
-export default function Window({
-  id,
-  color,
-  size,
-  className,
-  title,
-  onDismiss,
-  children,
-}: {
+interface WindowProps {
   id?: string;
   color?: ColorType;
   size?: SizeType;
@@ -19,23 +9,25 @@ export default function Window({
   title: string;
   onDismiss?: React.MouseEventHandler<HTMLButtonElement>;
   children: React.ReactNode;
-}) {
+}
+
+export default function Window(props: WindowProps) {
   const baseClass = "window";
-  const colorClass: string = color ? `filled-${color}` : "filled-surface";
-  const sizeClass: string = size ? `window-${size}` : "window-md";
+  const colorClass: string = props.color ? `filled-${props.color}` : "filled-surface";
+  const sizeClass: string = props.size ? `window-${props.size}` : "window-md";
   const combinedClasses = `${baseClass} filled-surface ${sizeClass} ${
-    className || ""
+    props.className || ""
   }`;
   return (
     <>
       <div className={combinedClasses}>
         <div className={`window-titlebar ${colorClass}`}>
-          <h1>{title}</h1>
-          {onDismiss && (
-            <Button variant="close" color="error" onClick={onDismiss}>X</Button>
+          <h1>{props.title}</h1>
+          {props.onDismiss && (
+            <Button variant="close" color="error" onClick={props.onDismiss}>X</Button>
           )}
         </div>
-        <div className="window-content">{children}</div>
+        <div className="window-content">{props.children}</div>
       </div>
     </>
   );

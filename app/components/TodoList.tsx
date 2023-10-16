@@ -332,43 +332,38 @@ export default function TodoList() {
   );
 }
 
-function Task({
-  desc,
-  date,
-  onClick,
-  className,
-  selected,
-}: {
+interface TaskProps {
   desc: string;
   date: string;
-  role?: string;
-  onClick?: React.MouseEventHandler<HTMLTableRowElement>;
+  onClick: React.MouseEventHandler<HTMLTableRowElement>;
   className?: string;
   selected?: boolean;
-}) {
+}
+
+function Task(props: TaskProps) {
   const baseClass: string = "group hover:bg-tertiary";
   const combinedClasses: string = `${baseClass} ${
-    selected ? "filled-tertiary" : ""
-  } ${className || ""}`;
+    props.selected ? "filled-tertiary" : ""
+  } ${props.className || ""}`;
   return (
     <>
-      <tr onClick={onClick} className={combinedClasses} role="button">
+      <tr onClick={props.onClick} className={combinedClasses} role="button">
         <td className="p-3">
           <p
             className={`text-on-surface group-hover:text-on-tertiary ${
-              selected ? "text-on-tertiary" : ""
+              props.selected ? "text-on-tertiary" : ""
             }`}
           >
-            {desc}
+            {props.desc}
           </p>
         </td>
         <td className="p-3">
           <p
             className={`text-on-surface group-hover:text-on-tertiary ${
-              selected ? "text-on-tertiary" : ""
+              props.selected ? "text-on-tertiary" : ""
             }`}
           >
-            {date}
+            {props.date}
           </p>
         </td>
       </tr>

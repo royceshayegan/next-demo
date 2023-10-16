@@ -70,6 +70,7 @@ export default function Register() {
                   autoFocus
                   type="text"
                   placeholder="Username"
+                  value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   required
                 />
@@ -78,6 +79,7 @@ export default function Register() {
                 <input
                   type="password"
                   placeholder="Password"
+                  value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />

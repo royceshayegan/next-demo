@@ -15,6 +15,8 @@ export default function TodoList() {
   const [isEditTaskDialogOpen, setIsEditTaskDialogOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [description, setDescription] = useState("");
+  const [filter, setFilter] = useState("");
+
 
   function getTasks() {
     if (status === "authenticated" && session) {
@@ -140,12 +142,15 @@ export default function TodoList() {
         <Button.Group>
           <div className="form-control">
             <input
+              id="filter-tasks"
               autoFocus
               type="text"
+              value={filter}
               placeholder="Start typing to filter..."
+              onChange={(e) => setFilter(e.target.value)}
             />
           </div>
-          <Button disabled color="neutral">
+          <Button disabled={!filter} color="neutral" onClick={() => setFilter('')}>
             Clear
           </Button>
         </Button.Group>

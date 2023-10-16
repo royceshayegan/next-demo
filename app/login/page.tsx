@@ -40,7 +40,7 @@ export default function Login() {
           <Window
             color="primary"
             title="Welcome back"
-            dismissable="back to login"
+            onDismiss={() => {}}
           >
             <form onSubmit={handleSubmit}>
               <div className="form-control">
@@ -49,6 +49,7 @@ export default function Login() {
                   type="text"
                   name="username"
                   placeholder="Username"
+                  value={username}
                   required
                   onChange={(e) => setUsername(e.target.value)}
                 />
@@ -57,6 +58,7 @@ export default function Login() {
                 <input
                   type="password"
                   placeholder="Password"
+                  value={password}
                   required
                   onChange={(e) => setPassword(e.target.value)}
                 />

@@ -309,7 +309,6 @@ export default function TodoList() {
                 onChange={(e) => setDescription(e.target.value)}
               />
             </div>
-            <Input test="yo" id="test" type="button" role="button">Tester</Input>
             {error && (
               <div className="filled-error px-3 py-1 mt-1 inline-block">
                 <span className="text-base">{error}</span>

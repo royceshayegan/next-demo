@@ -23,7 +23,7 @@ export default function Button(
   }`;
   return (
     <>
-      <button className={combinedClasses} {...props} >{props.children}</button>
+      <button {...props} className={combinedClasses}>{props.children}</button>
     </>
   );
 }
@@ -41,7 +41,7 @@ function Group(props: ButtonGroupProps) {
   const combinedClasses: string = `${baseClass} ${alignmentClass}`;
   return (
     <>
-      <div className={combinedClasses} role="group" {...props}>
+      <div {...props} className={combinedClasses} role="group">
         {props.children}
       </div>
     </>

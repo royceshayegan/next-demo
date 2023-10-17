@@ -18,9 +18,10 @@ export default function TodoList() {
   const [filter, setFilter] = useState("");
   const [error, setError] = useState("");
 
-  // When dialogs get dismissed, reset the error state.
+  // When dialogs get dismissed, reset the error and description state.
   useEffect(() => {
     setError("");
+    setDescription("");
   }, [isEditTaskDialogOpen, isNewTaskDialogOpen]);
 
   function getTasks() {
@@ -253,6 +254,7 @@ export default function TodoList() {
         className="w-full h-full flex justify-center"
       >
         <Window
+        id="test-edit-task-id"
           title="New Task"
           color="primary"
           onDismiss={() => setIsNewTaskDialogOpen(false)}

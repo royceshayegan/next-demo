@@ -240,7 +240,7 @@ export default function TodoList() {
           >
             Edit
           </Button>
-          <Button color="accent" onClick={() => setIsNewTaskDialogOpen(true)}>
+          <Button id="test" color="accent" onClick={() => setIsNewTaskDialogOpen(true)}>
             New Task
           </Button>
         </Button.Group>

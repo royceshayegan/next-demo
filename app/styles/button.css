@@ -46,7 +46,7 @@
   }
   /* Button Group */
   .btn-group {
-    @apply flex flex-row w-full py-3;
+    @apply flex flex-row w-full py-3 items-center;
   }
   .btn-group-divider-vertical {
     @apply border border-frame shadow-frame mx-3 w-[2px] h-[34px];

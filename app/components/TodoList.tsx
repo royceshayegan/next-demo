@@ -5,6 +5,7 @@ import Table from "./Table";
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { Dialog } from "@headlessui/react";
+import Input from "./Input";
 
 export default function TodoList() {
   const { data: session, status } = useSession();
@@ -308,6 +309,7 @@ export default function TodoList() {
                 onChange={(e) => setDescription(e.target.value)}
               />
             </div>
+            <Input test="yo" id="test" type="button" role="button">Tester</Input>
             {error && (
               <div className="filled-error px-3 py-1 mt-1 inline-block">
                 <span className="text-base">{error}</span>

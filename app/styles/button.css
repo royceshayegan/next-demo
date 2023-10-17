@@ -1,8 +1,4 @@
 
-  /* Button */
-  .btn {
-    @apply select-none font-sans text-base h-button px-5 py-1 overflow-x-hidden flex items-start;
-  }
   /* Variants */
   .btn,
   .btn-flat,
@@ -50,7 +46,7 @@
   }
   /* Button Group */
   .btn-group {
-    @apply flex w-full py-3 items-center;
+    @apply flex flex-row w-full py-3;
   }
   .btn-group-divider-vertical {
     @apply border border-frame shadow-frame mx-3 w-[2px] h-[34px];
@@ -59,22 +55,11 @@
     @apply border border-frame shadow-frame my-3 w-full h-[2px];
   }
   /* Alignment */
-  .btn-group-start {
-    @apply justify-start;
-  }
-  .btn-group-start > .btn:not(:last-child) {
+  .btn-group.justify-start > .btn:not(:last-child) {
     @apply mr-2;
   }
-  .btn-group-center {
-    @apply justify-center;
-  }
-  .btn-group-center > .btn {
-    @apply mx-1;
-  }
-  .btn-group-end {
-    @apply justify-end;
-  }
-  .btn-group-end > .btn:not(:first-child) {
+ 
+  .btn-group.justify-end > .btn:not(:first-child) {
     @apply ml-2;
   }
   
